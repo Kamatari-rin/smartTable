@@ -16,10 +16,10 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
             "AND (:resources IS NULL OR r.id IN :resources) " +
             "ORDER BY " +
             "CASE " +
-            "WHEN :sort = 'project' THEN project.id " +
+            "WHEN :sort = 'id' THEN project.id " +
             "WHEN :sort = 'projectName' THEN project.projectName " +
             "WHEN :sort = 'lastUpdate' THEN project.lastUpdate " +
-            "ELSE project.id END ASC")
+            " END ASC")
     List<Project> findProjectsForPublic(
             @Param("resources") List<Long> resources,
             @Param("userId") List<Long> userId,
