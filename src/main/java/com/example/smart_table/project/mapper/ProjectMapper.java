@@ -6,6 +6,7 @@ import com.example.smart_table.project.entity.Project;
 import com.example.smart_table.project.entity.Resource;
 import com.example.smart_table.project.entity.Status;
 import com.example.smart_table.project.entity.enums.ProjectStatus;
+import com.example.smart_table.project.entity.enums.ResourceType;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -36,7 +37,7 @@ public interface ProjectMapper {
     }
 
     @Named("stringSetToResourceSet")
-    default Set<Resource> mapStringSetToResourceSet(Set<String> resourceNames) {
+    default Set<Resource> mapStringSetToResourceSet(Set<ResourceType> resourceNames) {
         if (resourceNames == null || resourceNames.isEmpty()) {
             return null;
         }

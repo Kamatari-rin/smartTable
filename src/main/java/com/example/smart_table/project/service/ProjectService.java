@@ -3,16 +3,18 @@ package com.example.smart_table.project.service;
 import com.example.smart_table.project.dto.CreateNewProjectDto;
 import com.example.smart_table.project.dto.ProjectDto;
 import com.example.smart_table.project.dto.RequestDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface ProjectService {
 
-    List<ProjectDto> getProjectsForPublic(RequestDto request);
+    Page<ProjectDto> getProjectsForPublic(RequestDto request);
 
     ProjectDto createNewProject(CreateNewProjectDto newProjectDto);
 
     void deleteProjectById(long projectId);
 
-    List<ProjectDto> search(String text);
+    Page<ProjectDto> search(String query, Pageable pageable);
 }

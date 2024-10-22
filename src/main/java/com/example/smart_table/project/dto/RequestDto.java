@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Pageable;
 
 import java.util.Set;
 
@@ -14,14 +15,11 @@ import java.util.Set;
 @NoArgsConstructor
 public class RequestDto {
 
-
-    private String sort;
-
     private Set<Long> resources;
 
     private Set<Long> managers;
 
-    private int pagination;
+    private Pageable pagination;
 
     HttpServletRequest request;
 }

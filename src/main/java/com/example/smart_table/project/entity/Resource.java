@@ -1,5 +1,6 @@
 package com.example.smart_table.project.entity;
 
+import com.example.smart_table.project.entity.enums.ResourceType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class Resource {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "resource")
-    private String resource;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "resource", unique = true, nullable = false)
+    private ResourceType resource;
 }
